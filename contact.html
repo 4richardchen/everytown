@@ -12,7 +12,7 @@
 
 	<form id="contact-form">
 		<label for="sender_name">Your Name</label>
-		<input name="sender_name" id="sender_name" required>
+		<input type="text" id="sender_name" required>
 
 		<label for="sender_email">Your Email</label>
 		<input name="sender_email" type="email" id="sender_email" required>
@@ -23,8 +23,12 @@
 		<button type="submit">Send</button>
 	</form>
 
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		// form submission logic
+		
+		$(function() {
+			// form submission logic
+		});
 
 	</script>
 </body>
