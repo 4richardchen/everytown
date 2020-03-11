@@ -28,6 +28,35 @@
 		
 		$(function() {
 			// form submission logic
+
+			//use jQuery instead of Fetch API as line 26 suggests
+			$("#contact-form").submit(function(event){
+				//don't reload page on submit
+				event.preventDefault();
+
+				//form config
+				const post_url = "http://everytown.org/wp-json/et/v1/contact-us";
+				const request_method = "POST";
+				const form_data = $(this).serialize();
+				
+				//submit to rest-route.php
+				$.ajax({
+					url : post_url,
+					type: request_method,
+					data : form_data
+				}).done(function(response){
+				    //show submission status
+					$("<samp>")
+					    .addClass("status")
+					    .text(JSON.stringify(response))
+					    .prependTo("#contact-form")
+					    .delay(5000)
+					    .fadeOut(
+					    	2500,
+					    	() => $("#contact-form > .status").remove() //delete status element
+					    )
+				});
+			});
 		});
 
 	</script>
